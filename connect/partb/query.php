@@ -14,7 +14,7 @@
   $max = $_GET['max'];
 
 
-  $query = "SELECT wine_name,variety,year,winery_name,region_name,cost,price,SUM(qty),qty*price 
+  $query = "SELECT wine_name,variety,year,winery_name,region_name,cost,on_hand,SUM(qty),qty*price 
   FROM wine JOIN winery ON wine.winery_id = winery.winery_id  
   JOIN region ON region.region_id = winery.region_id 
   JOIN wine_variety ON wine_variety.wine_id = wine.wine_id 
@@ -77,7 +77,7 @@
       echo "<td>" . $row['winery_name'] . "</td>";
       echo "<td>" . $row['region_name'] . "</td>";
       echo "<td>" . $row['cost'] . "</td>";
-      echo "<td>" . $row['price'] . "</td>";
+      echo "<td>" . $row['on_hand'] . "</td>";
       echo "<td>" . $row['SUM(qty)'] . "</td>";
       echo "<td>" . $row['qty*price'] . "</td>";
    }
