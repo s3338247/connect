@@ -18,7 +18,7 @@
   $wordered = $_GET['wordered'];
   $min = $_GET['min'];
   $max = $_GET['max'];   
-  $query= "SELECT DISTINCT wine_name,variety,year,winery_name,region_name,cost,price,SUM(qty),qty*price,on_hand FROM wine JOIN winery ON 
+  $query= "SELECT DISTINCT wine_name,variety,year,winery_name,region_name,cost,on_hand,SUM(qty),qty*price FROM wine JOIN winery ON 
   wine.winery_id = winery.winery_id JOIN region ON region.region_id = winery.region_id JOIN wine_variety ON wine_variety.wine_id = wine.wine_id JOIN grape_variety 
   ON grape_variety.variety_id = wine_variety.variety_id JOIN inventory ON inventory.wine_id = wine.wine_id JOIN items ON items.wine_id = wine.wine_id WHERE 
   winery.region_id = region.region_id AND wine.winery_id = winery.winery_id";
